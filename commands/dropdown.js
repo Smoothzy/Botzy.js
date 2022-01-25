@@ -6,7 +6,6 @@ module.exports = {
   description: "Set main class",
 
   slash: "both",
-  testOnly: true,
   permissions: ["ADMINISTRATOR"],
 
   callback: ({ message, interaction }) => {

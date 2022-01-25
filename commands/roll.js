@@ -1,9 +1,8 @@
 module.exports = {
   category: "Testing",
   description: "Replies a random number",
-
   slash: "both",
-  testOnly: true,
+
   expectedArgs: "<number1>",
   callback: ({ message, interaction, args }) => {
     let reply = "";
