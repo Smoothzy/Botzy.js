@@ -9,7 +9,7 @@ module.exports = {
   category: "Group",
   description: "Replies with pong",
   slash: true,
-
+  testOnly: true,
   minArgs: 2,
   expectedArgs: "<dungeon> <players>",
   expectedArgsTypes: ["STRING", "NUMBER"],

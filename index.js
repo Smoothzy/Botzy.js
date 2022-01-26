@@ -25,11 +25,10 @@ client.on("ready", () => {
   addRoles(client);
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),
-    testServers: ["932374576770461726"],
+    testServers: ["932374576770461726", "934516360166404126"],
   });
 });
 
 //buttonInteractions(client);
-
 
 client.login(process.env.TOKEN);
