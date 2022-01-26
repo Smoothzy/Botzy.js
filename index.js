@@ -4,6 +4,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const scalingChannels = require("./actions/scalingChannels");
 const addRoles = require("./actions/addRole");
+const buttonInteractions = require("./actions/buttonInteractions");
 dotenv.config();
 
 const { Intents } = DiscordJS;
@@ -22,11 +23,13 @@ const client = new DiscordJS.Client({
 client.on("ready", () => {
   scalingChannels(client);
   addRoles(client);
-
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),
     testServers: ["932374576770461726"],
   });
 });
+
+//buttonInteractions(client);
+
 
 client.login(process.env.TOKEN);
