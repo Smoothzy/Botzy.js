@@ -34,13 +34,6 @@ module.exports = {
       );
 
     const filter = (i) => {
-      //console.log(i.customId);
-      //console.log(joinBtns[joinBtns.indexOf(i.customId)]);
-      //if (i.customId.match(/Join*/)) {
-      //  return i.customId === joinBtns[joinBtns.indexOf(i.customId)];
-      //} else {
-      //  return i.customId === leaveBtns[leaveBtns.indexOf(i.customId)];
-      //}
       return i.customId === "Join" || i.customId === "Leave";
     };
 
@@ -56,18 +49,13 @@ Attending members: ${interaction.user.username}`,
         const collector = message.createMessageComponentCollector({
           filter,
           componentType: "BUTTON",
+          time: 1000 * 1000,
         });
 
         let singedUpCounter = 0;
         let signedUpUser = [];
         signedUpUser.push(interaction.user.id);
         collector.on("collect", async (i) => {
-          console.log(parseInt(args[1]));
-          console.log(i.customId);
-          console.log(signedUpUser);
-          console.log(singedUpCounter);
-          console.log(interaction.user.id);
-
           if (i.customId == "Join") {
             if (
               singedUpCounter < parseInt(args[1]) - 1 &&
@@ -94,9 +82,6 @@ Attending members: ${interaction.user.username}`,
             ) {
               signedUpUser.pop(i.user.id);
               singedUpCounter--;
-              console.log(singedUpCounter);
-              console.log(signedUpUser);
-
               await i.deferUpdate();
               await interaction.editReply({
                 content: `${i.message
@@ -111,64 +96,14 @@ Attending members: ${interaction.user.username}`,
             }
           }
         });
+
+        collector.on("end", (collection) => {
+          interaction.editReply({
+            components: [],
+          });
+        });
       });
 
-    //const collector = channel.createMessageComponentCollector({
-    //  componentType: "BUTTON",
-    //  filter,
-    //});
-
-    //collector.on("collect", async (i) => {
-    //  try {
-    //    console.log(i.customId);
-    //    //if (i.customId === joinBtns[joinBtns.indexOf(i.customId)]) {
-    //    //  if (singedUpCounter < parseInt(args[1]) - 1) {
-    //    //    await i.deferUpdate();
-    //    //    await i.editReply({
-    //    //      content: `${i.message} ,${i.user.username}`,
-    //    //    });
-    //    //    signedUpUser.push(i.user.id);
-    //    //    singedUpCounter++;
-    //    //  } else {
-    //    //    await i.reply({
-    //    //      content: "Sorry, this party seems full or you already joined!",
-    //    //      ephemeral: true,
-    //    //    });
-    //    //  }
-    //    //} else if (i.customId === leaveBtns[leaveBtns.indexOf(i.customId)]) {
-    //    //  if (signedUpUser.includes(i.user.id) == true) {
-    //    //    await i.deferUpdate();
-    //    //    await i.editReply({
-    //    //      content: `${i.message
-    //    //        .toString()
-    //    //        .replace(`,${i.user.username}`, "")} `,
-    //    //    });
-    //    //    signedUpUser.pop(i.user.id);
-    //    //    singedUpCounter--;
-    //    //  } else {
-    //    //    await i.reply({
-    //    //      content: "You are not in ths party dummy!!!!!",
-    //    //      ephemeral: true,
-    //    //    });
-    //    //  }
-    //    //}
-    //  } catch (error) {
-    //    console.log(error);
-    //  }
-    //  console.log(signedUpUser);
-    //  console.log(singedUpCounter);
-    //});
-
     counter++;
-    //collector.on("end", (collection) => {
-    //  collection.forEach((click) => {
-    //    console.log(click.user.id, click.customId);
-    //  });
-    //  interaction.editReply({
-    //    content: "wow",
-    //    components: [],
-    //  });
-    //});
-    //
   },
 };
