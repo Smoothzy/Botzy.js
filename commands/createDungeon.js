@@ -1,6 +1,5 @@
 const discord = require("discord.js");
 const { MessageButton, MessageActionRow } = require("discord.js");
-const { isMethodSignature } = require("typescript");
 
 let joinBtns = [];
 let leaveBtns = [];
