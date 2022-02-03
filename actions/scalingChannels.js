@@ -35,8 +35,9 @@ module.exports = (client) => {
             " Hideaway",
             " Corner",
             " Sleepover",
+            "'s Haters",
           ];
-          var createChName = `${newState.member.user.username} ${
+          var createChName = `${newState.member.user.username}${
             Fun[Math.floor(Math.random() * Fun.length)]
           }`;
           var createdCh = guild.channels.create(createChName, {
