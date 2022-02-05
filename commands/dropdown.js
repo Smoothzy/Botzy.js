@@ -84,14 +84,14 @@ module.exports = {
 
     if (message) {
       message.reply({
-        content: "Select here your main class",
+        content: "Select your main class here",
         components: [row],
       });
       return;
     }
 
     interaction.reply({
-      content: "Select here your main class",
+      content: "Select your main class here",
       components: [row],
     });
   },
