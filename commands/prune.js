@@ -6,6 +6,7 @@ module.exports = {
   minArgs: 1,
   expectedArgs: "<number>",
   expectedArgsTypes: ["NUMBER"],
+  permissions: ["BAN_MEMBERS"],
   callback: async ({ message, channel, interaction, args }) => {
     if (message) {
       await message.delete();

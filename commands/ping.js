@@ -2,6 +2,7 @@ module.exports = {
     category: 'Testing',
     description: 'Replies with pong',
     slash: 'both',
+    permissions: ["BAN_MEMBERS"],
 
     
     callback: ({ message, interaction }) => {

@@ -6,7 +6,7 @@ module.exports = {
   description: "Set main class",
 
   slash: "both",
-  permissions: ["ADMINISTRATOR"],
+  permissions: ["BAN_MEMBERS"],
 
   callback: ({ message, interaction }) => {
     const options = [
