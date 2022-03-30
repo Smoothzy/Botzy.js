@@ -43,17 +43,17 @@ module.exports = (client) => {
           var createdCh = guild.channels.create(createChName, {
             type: "GUILD_VOICE",
             parent: "934980418489434163",
-            permissionOverwrites: [
-              {
-                id: 111177602818936832,
-                allow: [Permissions.FLAGS.MANAGE_CHANNELS],
-              },
-            ],
           });
           let member = newState.member.user.id;
           createdCh.then((val) => {
             newState.member.voice.setChannel(val);
             createdChs.push({ ch: val, member: member });
+            val.permissionOverwrites.set([
+              {
+                id: member,
+                allow: [Permissions.FLAGS.MANAGE_CHANNELS],
+              },
+            ]);
           });
         } else {
           console.log(`${newState.member.user.username} already has a ch`);
