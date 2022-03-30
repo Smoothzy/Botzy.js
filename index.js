@@ -1,5 +1,6 @@
 const DiscordJS = require("discord.js");
 const WOKCommands = require("wokcommands");
+const mongoose = require("mongoose");
 const path = require("path");
 const dotenv = require("dotenv");
 const scalingChannels = require("./actions/scalingChannels");
@@ -26,6 +27,7 @@ client.on("ready", () => {
   new WOKCommands(client, {
     commandsDir: path.join(__dirname, "commands"),
     testServers: ["932374576770461726", "934516360166404126"],
+    mongoUri: process.env.MONGO_URI,
   });
 });
 

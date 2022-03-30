@@ -46,6 +46,9 @@ module.exports = (client) => {
           });
           let member = newState.member.user.id;
           createdCh.then((val) => {
+            newState.member
+              .permissionIn(val.id)
+              .hasPermissions("MANAGE_CHANNELS");
             newState.member.voice.setChannel(val);
             createdChs.push({ ch: val, member: member });
           });
