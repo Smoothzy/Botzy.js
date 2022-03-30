@@ -52,9 +52,7 @@ module.exports = (client) => {
             val.permissionOverwrites.set([
               {
                 id: member,
-                allow: [
-                  Permissions.FLAGS.MANAGE_CHANNELS
-                ],
+                allow: [Permissions.FLAGS.MANAGE_CHANNELS],
               },
             ]);
           });
