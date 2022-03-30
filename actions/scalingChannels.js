@@ -53,8 +53,7 @@ module.exports = (client) => {
               {
                 id: member,
                 allow: [
-                  Permissions.FLAGS.MANAGE_CHANNELS,
-                  Permissions.FLAGS.CONNECT,
+                  Permissions.FLAGS.MANAGE_CHANNELS
                 ],
               },
             ]);
