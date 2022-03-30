@@ -45,7 +45,7 @@ module.exports = (client) => {
             parent: "934980418489434163",
             permissionOverwrites: [
               {
-                id: newState.member.user.id,
+                id: newState.member.id,
                 allow: [Permissions.FLAGS.MANAGE_CHANNELS],
               },
             ],
