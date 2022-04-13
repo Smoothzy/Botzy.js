@@ -39,6 +39,10 @@ module.exports = {
         value: "935221795949252608",
       },
       {
+        label: "Glaivier",
+        value: "963725958588792833",
+      },
+      {
         label: "Gunslinger",
         value: "935221841755263077",
       },
