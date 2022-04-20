@@ -67,7 +67,7 @@ module.exports = {
         value: "935221971413778462",
       },
       {
-        label: "Shadownhunter",
+        label: "Shadowhunter",
         value: "935222020831080549",
       },
       {
