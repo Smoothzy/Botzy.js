@@ -8,7 +8,7 @@ module.exports = {
     let reply = "";
     console.log(args[0]);
     if (args[0] != undefined) {
-      reply = `You rolled ${Math.floor(Math.random() * parseInt(args[0]))}`;
+      reply = `You rolled ${Math.floor(Math.random() * parseInt(args[0])) + 1}`;
     } else {
       reply = `You rolled ${Math.floor(Math.random() * 11)}`;
     }
